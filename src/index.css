@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 48 25% 90%;
+    --foreground: 0 70% 22%;
+
+    --card: 48 25% 92%;
+    --card-foreground: 0 70% 22%;
+
+    --popover: 48 25% 92%;
+    --popover-foreground: 0 70% 22%;
+
+    --primary: 0 78% 32%;
+    --primary-foreground: 48 30% 94%;
+
+    --secondary: 48 22% 84%;
+    --secondary-foreground: 0 70% 22%;
+
+    --muted: 48 18% 86%;
+    --muted-foreground: 0 25% 35%;
+
+    --accent: 0 78% 32%;
+    --accent-foreground: 48 30% 94%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 48 30% 94%;
+
+    --border: 48 18% 78%;
+    --input: 48 18% 78%;
+    --ring: 0 78% 32%;
+
+    --radius: 1.5rem;
+
+    --crimson: 0 78% 32%;
+    --crimson-deep: 0 80% 22%;
+    --cream: 48 25% 90%;
+
+    --shadow-folder: 0 25px 50px -15px hsl(0 80% 15% / 0.35);
+    --shadow-soft: 0 10px 30px -10px hsl(0 50% 20% / 0.2);
+  }
+
+  .dark {
+    --background: 0 30% 10%;
+    --foreground: 48 25% 90%;
+    --card: 0 30% 13%;
+    --card-foreground: 48 25% 90%;
+    --primary: 0 78% 45%;
+    --primary-foreground: 48 25% 95%;
+    --border: 0 20% 20%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Cormorant Garamond', serif; }
+  .shadow-folder { box-shadow: var(--shadow-folder); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .text-crimson { color: hsl(var(--crimson)); }
+  .bg-crimson { background-color: hsl(var(--crimson)); }
+  .text-balance { text-wrap: balance; }
+
+  .folder-tab {
+    clip-path: path('M 0 60 Q 0 0 60 0 L 280 0 Q 320 0 332 30 L 350 60 L 100% 60');
+  }
+}
