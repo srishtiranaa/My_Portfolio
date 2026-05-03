@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { Mail, Send, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { hasSupabaseConfig, supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const schema = z.object({
@@ -22,6 +22,12 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!hasSupabaseConfig || !supabase) {
+      toast.error("Contact form is not configured", {
+        description: "Set the Supabase environment variables in Vercel, then redeploy.",
+      });
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       const flat: Record<string, string> = {};
