@@ -48,19 +48,3 @@ Optionally add a `vercel.json` at the repo root to ensure SPA routing (not requi
 	]
 }
 ```
-
-## Removal of Lovable references
-Per your request, all traces of the `lovable` tool were removed:
-
-- Removed the `lovable-tagger` package from devDependencies (`npm uninstall lovable-tagger`).
-- Removed the `componentTagger` import and usage from `vite.config.ts`.
-- Replaced author/metadata in `index.html` (changed `Lovable` → `Srishti Rana`) and rebuilt the project so `dist/` no longer contains Lovable assets.
-
-To verify, run a repo search for "Lovable" or check `dist/index.html` after building.
-
-## Notes
-- If you use CI or Vercel, ensure the env vars are set in the dashboard before deploying.
-- If you want, I can create a `vercel.json` for you and push it to the repo.
-
----
-If you want I can also open a PR with these changes or push `vercel.json` for you.
